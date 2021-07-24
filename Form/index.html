@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Registration Form</title>
+</head>
+
+<body>
+      <h1>Registration Form</h1>
+      <hr>
+      <form autocomplete="off">
+            <!-- Name -->
+            <label for="name"><b>Name</b></label>
+            <br>
+            <input type="text" name="name" id="name" placeholder="Name">
+            <br>
+            <br>
+            <!-- Email -->
+            <label for="email"><b>Email</b></label>
+            <br>
+            <input type="email" name="email" id="email" placeholder="Email">
+            <br>
+            <br>
+            <!-- Phone -->
+            <label for="phone"><b>Phone</b></label><br>
+            <input type="tel" name="Phone" id="Phone" placeholder="xxx" size="3" maxlength="3">
+            <input type="tel" name="Phone" id="Phone" placeholder="xxx" size="3" maxlength="3">
+            <input type="tel" name="Phone" id="Phone" size="5" placeholder="xxx" size="4" maxlength="4">
+            <br>
+            <br>
+            <!-- Date of birth -->
+            <label for="dob"><b>Date of Birth</b></label>
+            <br>
+            <input type="date" name="dob" id="dob">
+            <br>
+            <br>
+            <!-- Gender -->
+            <h4>Gender</h4>
+            <table>
+                  <tr>
+                        <td align="center">
+                              <label for="male">Male</label>
+                              <br>
+                              <input type="radio" name="gender" id="male">
+                        </td>
+                        <td align="center">
+                              <label for="female">Female</label>
+                              <br>
+                              <input type="radio" name="gender" id="female">
+                        </td>
+                        <td align="center">
+                              <label for="other">Other</label>
+                              <br>
+                              <input type="radio" name="gender" id="other">
+                        </td>
+                  </tr>
+            </table>
+            <br>
+            <!-- Household size -->
+            <label for="household"><b>Household Size</b></label>
+            <br>
+            <input type="number" size="2" id="household" min="1" max="10" maxlength="2">
+            <br>
+            <br>
+            <label for="income"><b>Annual Income</b></label>
+            <br>
+            <select name="income" id="income">
+                  <option>Less than $20k</option>
+                  <option>Less than $30k</option>
+                  <option>Less than $40k</option>
+                  <option>Less than $50k</option>
+                  <option>More than $60k</option>
+            </select>
+            <br>
+            <br>
+            <!-- Message -->
+            <label for="message"><b>Message</b></label>
+            <br>
+            <textarea name="message" id="message" cols="40" rows="5">Add a message here...</textarea>
+            <br>
+            <br>
+            <!-- Password -->
+            <label for="password"><b>Password</b></label>
+            <br>
+            <input type="password" name="password" id="password" placeholder="Password">
+            <br>
+            <!-- Confirm Password -->
+            <label for="confirm"><b>Confirm Password</b></label>
+            <br>
+            <input type="password" name="confirm" id="confirm" placeholder=" Confirm Password">
+            <hr>
+            <br>
+            <!-- Agree to terms -->
+            <input type="checkbox" name="agree" id="agree">
+            <label for="agree">By signing up, you agree to sell your soul</label>
+            <br>
+            <br>
+            <button type="submit">Submit</button>
+
+
+
+
+
+
+      </form>
+     
+</body>
+
+</html>

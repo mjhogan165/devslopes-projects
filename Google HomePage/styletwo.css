@@ -1,0 +1,137 @@
+body{
+      /* border: solid thin rgb(255, 0, 0); */
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 550;
+      height: 98vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      
+     
+}
+body div{
+      /* border: solid 2px rgb(0, 0, 0); */
+      margin: 10px;
+}
+nav{
+      /* border: solid black; */
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      
+}
+nav div{
+      align-items: center;
+}
+.nav-link__right{
+      display: flex;
+      margin: 0px;  
+      margin-left: auto;  
+}
+a:link{
+      text-decoration: none;
+      color: rgb(94, 94, 94);
+}
+a:hover{
+      text-decoration: underline;
+}
+a:visited{
+      color: rgb(94, 94, 94);
+
+}
+img{
+      max-width: 20px;
+}
+.menu-image{
+      display: flex;
+      align-items: center;
+}
+.menu-image > button{
+      border: none;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0);
+}
+.profile-pic{
+      align-items: center;
+}
+.profile-pic--circle{
+      display: block;
+      border-radius: 50%;
+      /* object-fit: center; */
+      max-width: 40px;
+      margin-bottom: 0px;
+}
+.logo{
+      /* border: solid black; */
+      display: flex;
+      justify-content: center;
+
+}
+.logo > img{
+      max-width: 500px;
+}
+.search-container{
+      /* border: solid black; */
+      display: flex;
+      justify-content: center;
+}
+.search-container input{
+      border-radius: 10px;
+      width: 400px;
+      border: solid thin rgb(233, 233, 233);
+      height: 35px;
+      padding: 15px;
+      padding-left: 40px;
+}
+form{
+      display:flex;
+      align-items: center;
+      position: relative;
+}
+.magnifying-glass{
+      max-width: 20px;
+      max-height: 20px;
+      position: absolute;
+      padding-left: 8px;
+           
+}
+.microphone{
+      max-width: 50px;
+      max-height: 50px;
+      position: absolute;
+      right: 2px;
+}
+.search-buttons{
+      /* border: solid black; */
+      display: flex;
+      justify-content: center;
+}
+.search-buttons > button{
+      margin: 10px;
+}
+footer{
+      display: flex;
+      /* border: solid black; */
+      margin: 5px;
+      background-color: rgb(233, 233, 233);
+      
+}
+.footer-buttons__right{
+      display: flex;
+      /* border: solid black; */
+      margin: 0px;
+      margin-left: auto;
+}
+.center-content{
+      display: flex;
+      flex-direction: column;
+      /* margin-bottom: 250px; */
+}
+
+
+form:active, form:focus{
+      border: solid thin rgb(233, 233, 233);
+      
+}
+

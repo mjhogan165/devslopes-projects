@@ -1,0 +1,61 @@
+.sidebar{
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color: rgb(255, 255, 255);
+      position: fixed;
+      padding-right: 10;
+      border: rgb(0, 0, 0);
+      border-style: solid;
+      padding-right: 35px;
+      
+      
+}
+#introduction{
+      margin-left: 200px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+     
+      
+      
+}
+#topic-one{
+      margin-left: 200px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      
+}
+#topic-two{
+      margin-left: 200px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      
+}
+#topic-three{
+      margin-left: 200px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      
+}
+#conclusion{
+      margin-left: 200px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      
+}
+#theheader {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.subheader {
+      background-color: black;
+      color: white;
+      border-style: solid;
+      
+}
+
+#nobullet{
+      list-style-type: none;
+     
+}
+
+.navbuttons{
+      
+      padding: 5px 4px;
+}
+a {
+      text-decoration: none;
+}

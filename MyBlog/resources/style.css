@@ -1,0 +1,123 @@
+header {
+      background-image: linear-gradient(to right, #6D8C1A,#38502B);
+      border: solid thin black;
+      color: rgba(255, 255, 255, 0.74);
+      border-radius: 3px;
+      position: relative;
+      height: 150px;
+      
+      }
+h1, h2{
+      text-align: center;
+}
+body {
+      background: 
+      /* top, transparent red, faked with gradient */ 
+     linear-gradient(
+        rgba(31, 55, 83, 0.45), 
+        rgba(31, 55, 83, 0.45)
+      ),
+      /* bottom, image */
+      url(https://cdn.gracza.pl/i_gp/h/22/344711794.jpg);
+      background-size: cover;
+  
+      
+      font-family: 'Lato', sans-serif;
+      background-attachment: fixed;
+      margin: auto;
+      width: 900px;
+      color: white;
+      font-size: large;
+}
+#maincontent {
+      padding: 20px;
+      background-color: #45515ebe;
+      border-radius: 5px;
+     
+    
+}
+.subsection{
+     border: thin solid #1F3753;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 5px;
+}
+#sidecontent {
+      margin: 10px;
+      margin-right: 50px;
+      border-color: rgb(10, 58, 30);
+      border-style: solid;
+      
+}
+#tophead{
+      padding: 15px;
+      width: 700px;
+      margin: auto;
+      background-image: linear-gradient(to right, #6D8C1A,#38502B);
+      color: rgba(255, 255, 255, 0.801);
+      border-radius: 3px;
+
+}
+#profilepic{
+      border-radius: 50%;
+      height: 60px;
+      width: 60px;
+      margin-left: 15px;
+      
+}
+#myinfo{
+      background-image: linear-gradient(to right, #6D8C1A,#38502B);
+      border-radius: 4px;
+      border: solid thin black;
+      position: absolute;
+      top: 90%;
+      left: 30%;
+      width: 400px;
+      height: 100px;
+      font-size: medium;
+}
+
+#myinfotable tr td{
+      padding: 10px;
+      top: 0px;
+      margin: 0px;
+      
+      
+
+}
+#myinfotable p{
+      padding-left: 50px;
+}
+nav{
+      margin-top: 100px;
+      background-image: linear-gradient(to right, #3C6390, #0F216E);
+      padding: 20px;
+      text-align: center;
+      
+      
+}
+:link{
+      text-decoration: none;
+      color: black;
+}
+:hover{
+      color: white;
+}
+button{
+      padding-left: 10px;
+      padding-top: 0px;
+      margin-top: 0px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0);
+      font-size: 28px;
+      border-left: thin solid #0F216E;
+}
+#followbutton{
+      border: solid thin black;
+      font-size: 15px;
+      background-color: white;
+      margin: 10px;
+      padding: 20px, 10px, 10px, 10px;
+      
+}
+

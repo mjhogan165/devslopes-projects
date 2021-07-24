@@ -1,0 +1,39 @@
+#mytable{
+      background-color: #41B3A3;
+          
+}
+
+td{
+      width: 300px;
+      padding: 0px 10px;
+}
+
+table, td, th, tr{
+    text-align: center;
+    border: solid #205a50 2px;
+    font-family:sans-serif;
+        
+}
+
+img {
+      max-width: 150px;
+      border-radius: 15px;
+}
+
+th {
+      color: white;
+      background-color: teal;
+}
+
+.red {
+      color: red;
+}
+.blue {
+      color: blue;
+}
+
+
+
+
+
+

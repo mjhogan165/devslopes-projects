@@ -1,0 +1,32 @@
+
+img{
+
+      border-radius: 100%;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+}
+li{
+      list-style-type: none;
+}
+.container{
+      border: 15px solid rgb(77, 148, 255);
+      background-color: rgba(195, 218, 253, 0.247);
+      width: 400px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding:20px;
+}
+.container div{
+      display: flex;
+      padding: 10px;
+}
+.Name{
+      font-size: 18px;
+      font-weight: 600;
+}
+.Adress{
+      color: rgb(143, 143, 143);
+      font-weight: 600;
+      font-size: 22px;
+}
+

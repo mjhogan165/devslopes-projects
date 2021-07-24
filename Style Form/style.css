@@ -1,0 +1,25 @@
+body{
+      background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+      /* background-size: 1920px 1080px; */
+      color: white;
+      font-family: sans-serif;
+      background-size: cover;
+}
+h1, h2{
+      text-align: center;
+}
+h2{
+      font-size: medium;
+      font-weight: 100;
+}
+form, header{
+      background-color: #3b6072a2;
+      padding: 30px;
+      max-width: 500px;
+      max-height: 800px;
+      margin: auto;
+      
+}
+header{
+      padding-top: 1%;
+}

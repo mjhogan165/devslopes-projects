@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <title>Devslopes Survey Form</title>
+</head>
+<body>
+      <header>
+            <h1>Devslopes Survey Form</h1>
+            <h2>Thank you for taking the time to help us improve the platform</h2>
+      </header>
+      <br>
+            <form>
+            <!-- Name -->
+            <label for="Name">Name</label><br>
+            <input placeholder="Enter your name" type="text" name="Name" id="Name"><br><br>
+            <!-- Email -->
+            <label for="Email">Email</label><br>
+            <input type="text" name="Email" id="Email" placeholder="Enter your Email"><br><br>
+            <!--Age  -->
+            <label for="Age">Age</label><br>
+            <input type="number" name="Age" id="Age" placeholder="Enter your Email"><br><br>
+            <!-- Current Role -->
+            <label> Which option best describes your current role?</label><br>
+            <select name="Role" id="Role">
+                  <option value="none">Select current role</option>
+                  <option value="Student">Student</option>
+                  <option value="FullTimeJob">Full Time Job</option>
+                  <option value="FullTimeLearner">Full Time Learner</option>
+                  <option value="NotSay">Prefer not to say</option>
+                  <option value="Other">Other</option>
+            </select><br><br>
+            <!-- Recommendation -->
+            <label for="">Would you reccomend Devlsopes to a friend?</label><br>
+            <input type="radio" name="Recommendation" id="Definitely">
+            <label for="Definitely">Definitely</label><br>
+            <input type="radio" name="Recommendation" id="Maybe">
+            <label for="Maybe">Maybe</label><br>
+            <input type="radio" name="Recommendation" id="Notsure">
+            <label for="Notsure">Not sure</label><br>
+            <br>
+            <!-- favorite feature -->
+            <label for="Feature">What is your favorite feature of Devlsoipes</label><br>
+            <select name="Feature" id="Feature">
+                  <option value="none">Select One</option>
+                  <option value="Challenges">Challenges</option>
+                  <option value="Projects">Projects</option>
+                  <option value="Community">Community</option>
+                  <option value="Mentorship">Mentorship</option>
+            </select><br><br>
+            <!-- improvements -->
+            <label for="">What would you like to see improved?</label><br>
+            <input type="checkbox" name="FrontEndProjects" id="FrontEndProjects">
+            <label for="FrontEndProjects">Front End Projects</label>
+            <br>
+            <input type="checkbox" name="BackEndProjects" id="BackEndProjects">
+            <label for="BackEndProjects">Back-end Projects</label>
+            <br>
+            <input type="checkbox" name="Challenges" id="Challenges">
+            <label for="Challenges">Challenges</label>
+            <br>
+            <input type="checkbox" name="Videos" id="Videos">
+            <label for="Videos">Videos</label>
+            <br>
+            <input type="checkbox" name="OnlineMeetUps" id="OnlineMeetUps">
+            <label for="OnlineMeetUps">Online Meetups</label>
+            <br>
+            <input type="checkbox" name="Community" id="Community">
+            <label for="Community">Community</label>
+            <br><br>
+            <!-- Comments -->
+            <label for="Comments">Any comments or suggestions?</label>
+            <br>
+            <textarea name="Comments" id="Comments" cols="40" rows="10">Enter your comments here...</textarea>
+            <br><br>
+            <input type="submit" value="Submit">
+      </form>
+      
+</body>
+</html>
