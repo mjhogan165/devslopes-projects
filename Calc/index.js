@@ -1,6 +1,7 @@
 var rs = require('readline-sync');
 
 var strArr = ['+', '-', '/', '*'];
+let strArr = ['+', '-', '/', '*'];
 
 //prompt the user for an operation to perfom
 //If the user enters an invalid character print, "That is not a valid operation" and then restart the program
