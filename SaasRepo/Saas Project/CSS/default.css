@@ -1,0 +1,142 @@
+:root {
+    /* color var */
+    --white: #FFF;
+    --black: #000;
+    --font-color-base: #6a798a;
+    --font-color-header: #1e2022;
+    --font-color-nav-highlight: #508dff;
+    --contrast: rgba(248,249,251,1.0);
+    --contrast-darker: #bec2cd;
+    --transparent-font: rgba(255, 255, 255, 0.6);
+    --button: #377dff;
+    --dark-blue-bg: #243358;
+    --social-media: #F0F1F6;
+    /* size var */
+    --size-10: 0.625rem;
+    --size-12: 0.75rem;
+    --size-14: 0.875rem;
+    --size-16: 1rem;
+    --size-18: 1.125rem;
+    --size-20: 1.25rem;
+    --size-30: 1.875rem;
+    --size-40: 2.5rem;
+    --size-50: 3.125rem;
+    --size-60: 3.75rem;
+    --size-70: 4.375rem;
+    --size-80: 5rem;
+    --size-90: 5.625rem;
+    --size-100: 6.25rem;
+    --size-150: 9.375rem;
+
+} 
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    font-size: var(--size-16);
+    /* line-height: 1.6; */
+    color: var(--font-color-base);
+    /* safeties to overrride and browser defaults */
+    letter-spacing: 0; 
+    margin: 0;
+    padding: 0;
+}
+
+*,
+::after,
+::before{
+    box-sizing: border-box;
+}
+
+/* removes ul defaults and styles */
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* remove link underlines */
+a{ 
+    text-decoration: none;
+}
+
+/* remove top padding default */
+p{ margin-top: 0;}
+
+img{
+    /* help elements fit into containers better (100% of containing blocks width) */
+    width: 100%;
+    /* incase width tries to exceed 100% */
+    max-width: 100%;
+    vertical-align: middle;
+    border-style: none;
+}
+h1,h2,h3,h4,h6 {
+    color: var(--font-color-header);
+}
+h1{
+    font-size: var(--size-50);
+    margin: 30px 0 0 0;
+}
+h2{
+    font-size: var(--size-40);
+    margin-bottom: var(--size-10);
+}
+h3{
+    font-size: var(--size-30);
+    margin-top: 0px;
+}
+h4{
+    font-size: var(--size-16);
+    margin-bottom: 0px;
+}
+h5{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: var(--size-14);
+    margin-bottom: var(--size-50);
+}
+h6{
+    font-size: var(--size-12);
+    font-weight: 700;
+}
+.container{
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* to center it */
+    margin-left: auto;
+    margin-right: auto;
+}
+.container-slim{
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* to center it */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* default button classs */
+.btn {
+    font-size: var(--size-16);
+    font-weight: 600;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    /* user cant click text */
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 15px 25px;
+    border-radius: 50px;
+    /* this applies to hover effect */
+    transition: ease-in-out 0.3s;
+    background-color: var(--button);
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+section{
+    margin: 100px 0;
+}
+

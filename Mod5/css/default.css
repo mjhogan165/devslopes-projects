@@ -1,0 +1,142 @@
+:root {
+      /* color var */
+      --white: #FFF;
+      --black: #000;
+      --font-color-base: #666;
+      --font-color-dark: #212529;
+      --font-color-light:#b0aebe;
+      --font-color-link: #57A6FF;
+      --footer: #34314b;
+      --footer-base: #2E2C44;
+      --contrast: rgba(246,248,249, 0.8) ;
+      --success: #64ECF5;
+      --danger: #FF8B8D;
+      --grad-1: #a1ecff;
+      --grad-2: #7dbcff;
+      /* size var */
+      --size-10: 0.625rem;
+      --size-12: 0.75rem;
+      --size-14: 0.875rem;
+      --size-16: 1rem;
+      --size-18: 1.125rem;
+      --size-20: 1.25rem;
+      --size-30: 1.875rem;
+      --size-40: 2.5rem;
+      --size-50: 3.125rem;
+      --size-100: 6.25rem;
+      --size-150: 9.375rem;
+
+} 
+html{
+      scroll-behavior: smooth;
+}
+body{
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: var(--size-14);
+      line-height: 1.6;
+      color: var(--font-color-base);
+      /* safeties to overrride and browser defaults */
+      letter-spacing: 0; 
+      margin: 0;
+      padding: 0;
+}
+
+*,
+::after,
+::before{
+      box-sizing: border-box;
+}
+
+/* removes ul defaults and styles */
+ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+}
+
+/* remove link underlines */
+a{ text-decoration: none;}
+
+/* remove top padding default */
+p{ margin-top: 0;}
+
+h2{
+      font-size: var(--size-30);
+      font-weight: 500;
+      line-height: 1.2;
+}
+h5 {
+      font-size: var(--size-16);
+      
+}
+h6 {
+      font-size: var(--size-12);
+}
+
+
+
+img{
+      /* help elements fit into containers better (100% of containing blocks width) */
+      width: 100%;
+      /* incase width tries to exceed 100% */
+      max-width: 100%;
+      vertical-align: middle;
+      border-style: none;
+}
+
+.container{
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+      /* to center it */
+      margin-left: auto;
+      margin-right: auto;
+}
+/* default button classs */
+.btn {
+      display: inline-block;
+      font-weight: 400;
+      color: var(--font-color-dark);
+      cursor: pointer;
+      /* user cant click text */
+      user-select: none;
+      background-color: red;
+      border: 1px solid transparent;
+      padding: 0.375rem 0.75rem;
+      border-radius: 1.25rem;
+      /* this applies to hover effect */
+      transition: ease-in-out 0.3s;
+}
+.btn-primary {
+      background-image: linear-gradient(90deg, var(--grad-1) 0%, var(--grad-2) 100%);
+      border: 1px solid var(--grad-1);
+      box-shadow: 0 10px 20px rgb(161 236 255 / 50%);
+      transition: ease-in-out 0.3s;
+      color: white;
+      padding: .4375rem 1.5625rem;
+}
+
+.btn-white{
+      background-color: var(--white);
+      color: var(--font-color-link);
+      padding: 0.475rem 1.75rem;
+      box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.35);
+}  
+/* a smaller container within a container */
+@media (min-width: 768px) {
+      .pricing-table,
+      .footer-wrapper-bottom,
+      .testimonial-grid {max-width: 720px;}
+}
+
+@media (min-width: 992px) {
+      footer .container {max-width: 960px}
+}
+
+/* container within container */
+@media (min-width: 1200px) {
+      .container {max-width: 1140px;}
+}
+
+

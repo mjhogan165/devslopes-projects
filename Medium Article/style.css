@@ -1,0 +1,29 @@
+.container{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      justify-items: center;
+      align-items: center;
+      gap: 10px;
+      width: 400px;
+      height: 400px;
+      border: solid thick black;
+      background: rgb(209, 208, 255);
+}
+.item{
+      width: 100px;
+      height: 100px;
+      border: solid thick rgb(65, 62, 255);
+      background: rgb(148, 146, 255);
+}
+.different-item{
+      width: 100px;
+      height: 100px;
+      border: solid thick rgb(65, 62, 255);
+      background: rgb(148, 146, 255);
+      justify-self: start;
+}
+
+
+
+

@@ -1,0 +1,78 @@
+*{
+      font-family: 'Hind', sans-serif;
+      color: rgb(121, 121, 121);
+}
+p{
+      margin: 0;
+}
+h2 {
+      margin: 0px;
+      font-size: 18px;
+      color: rgb(97, 97, 97);
+}
+
+
+.container{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      
+
+}
+.card{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      padding-bottom: 10px;
+      margin: 10px;
+      box-sizing: border-box;  
+      box-shadow: 0px 4px 8px  rgba(0, 0, 0, 0.205);
+      width: 350px;
+      height: 175px;
+      min-width: 350px;
+
+}
+.container > :hover{
+      background-color: rgb(224, 224, 224);
+      box-shadow: 0px 4px 8px  rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+}
+
+
+
+.card-top{
+      display: grid;
+      gap: 10px;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+     
+}
+.wheel, .message-icon{
+      grid-column: 1/2;
+      grid-row: 1/ span 2;
+      width: 50px;
+      
+      
+}
+
+.card-top h2{
+      grid-column: 2/3;
+      grid-row: 1/2;
+
+}
+.card-top p{
+      grid-column: 2/3;
+      grid-row: 2/3;
+}
+.card-foot{
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+     
+}
+a{
+      text-decoration: none;
+      
+}

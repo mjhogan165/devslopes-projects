@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+      <link rel="stylesheet" href="style.css">
+
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+      <div class="window-container" >
+            <div class="window-wrapper">
+                  <div class="square window-btn"></div>
+                  <div class="triangle window-btn"></div>
+                  <div class="circle window-btn"></div>
+            </div>
+      </div>
+      <nav class="navbar">
+            <div class="container">
+                  <div class="nav-wrapper">
+                        <div class="nav-menus">
+                              <i class="fas fa-bars"></i>
+                              <p class="contacts">
+                                    Contacts
+                              </p>
+                        </div>
+                        <ul class="nav-tools" >
+                              <li>
+                                    <i class="fas fa-search"></i>
+                              </li>
+                              <li>
+                                    <i class="fas fa-ellipsis-v"></i>
+                              </li>
+                        </ul>
+                  </div>
+            </div>  
+      </nav>
+      <div class="container" >
+            <form class="form" action="">
+                  <label class="Name-icon-grid"for="Name"><i class="fas fa-user form-icons"></i></label>
+                  <input class="dark-input-field" type="text" id="Name" placeholder="Name" name="Name">
+                  <label class="Number-icon-grid" for="Number"><i class="fas fa-phone form-icons"></i></label>
+                  <input class="light-input-field" type="number" id="Number" placeholder="Phone Number" name="Number">
+                  <select class="light-input-field" name="Label" id="Label-dropdown">
+                        <option value="none">Label</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Work">Work</option>
+                        <option value="Home">Home</option>
+                  </select>
+                  <label class="Adress-icon" for="Address"><i class="fas fa-map-marker-alt form-icons"></i></label>
+                  <input class="dark-input-field" type="text" id="Address" placeholder="Address" name="Address">
+                  <label for="City"></label>
+                  <input class="light-input-field" type="text" id="City" placeholder="City" name="City">
+                  <select class="dark-input-field" name="State" id="State">
+                        <option value="none">State</option>
+                        <option value="">AL</option>
+                  </select>
+                  <label for="Zip"></label>
+                  <input class="dark-input-field" type="number" id="Zip" placeholder="Zip" name="Zip">
+                  <label class="Email-icon" for="Email"><i class="fas fa-envelope form-icons"></i></label>
+                  <input class="light-input-field" type="text" id="Email" placeholder="Email" name="Email">
+                  <label class="Birthday-icon" for="Birthday"><i class="fas fa-birthday-cake form-icons"></i></label>
+                  <input class="dark-input-field" type="date" id="Birthday" placeholder="Birthday" name="Birthday">
+            </form>
+      </div>
+      
+</body>
+</html></html>
