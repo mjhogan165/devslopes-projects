@@ -20,19 +20,39 @@
             </div>
             <div class="navbar-nav">
                 <ul class="ul-defaults-none main-menu">
-                    <li class="nav-item">About me</li>
                     <li class="nav-item">Home</li>
-                    <li class="nav-item">Contact</li>
+                    <li class="nav-item" data-open="about">About Me</li>
+                    <li class="nav-item" data-open="contact">Contact</li>
                 </ul>
             </div>
         </nav>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero-bg">
+        <div class="container">
+            <div class="hero-content">
+                <div class="code-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2>Code. Eat. Sleep</h2>
+                <div>I create meaningful solutions for your brands and products</div>
+                <br>
+                Give your customers the best experience possible
+            </div>
+            <div>
+                <a href="#" data-open="contact">Let's talk now</a>
+            </div>
+        </div>
+    </section>
+
 </main>
-<div class="full-site-modal page-block is-visible" data-animation="zoomInOut">
+<!-- Modals -->
+<!-- About Page Modal -->
+<div id="about" class="full-site-modal page-block is-visible" data-animation="zoomInOut">
     <header class="modal-header">
         <h3>ABOUT PAGE</h3>
-        <i class="fas fa-times"></i>
+        <i class="fas fa-times" data-close></i>
     </header>
     <div class="modal-body">
         <div class="img-wrapper">
@@ -48,6 +68,27 @@
 
     </div>
 </div>
+<!-- Contact Page Modal -->
+<div id="contact" class="full-site-modal page-block is-visible" data-animation="zoomInOut">
+    <header class="modal-header">
+        <h3>Contact Page</h3>
+        <i class="fas fa-times" data-close></i>
+    </header>
+    <div class="modal-body">
+        <div class="img-wrapper">
+            <img src="./assets/images/img4.jpg" alt="headshot">
+        </div>
+        <h2>Jason Brewer</h2>
+        <p>text 1</p>
+        <p>text 2</p>
+        <div>
+            <div>email me</div>
+            <a href="mailto:mjhogan165@gmail.com">mjhogan165@gmail.com</a>
+        </div>
+
+    </div>
+</div>
+
 
 <script src="js/main.js"></script>
 </body>
