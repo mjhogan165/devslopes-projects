@@ -11,6 +11,34 @@
     letter-spacing: -0.5px;
     line-height: 1.42;
 }
+
+.hero-content {
+    text-align: center;
+    padding: 5.5rem 0;
+}
+
+.code-icon {
+    background-color:  #da5252;
+    color: var(--color-text);
+    padding: 1.25rem 1.5rem;
+    border-radius: 50rem;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.code-icon .fa-code {
+    font-size: 2rem;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+
+
+
+
+
+
 .main-menu{display: flex;}
 .main-menu .nav-item{
     padding: 18px;
@@ -20,12 +48,21 @@
     text-transform: lowercase;
 }
 
+
+
+
+
+
+
+
+
 .full-site-modal {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    visibility: hidden;
     padding: 1rem;
     transition: all 0.35s ease-in;
     background: white;
@@ -47,7 +84,7 @@
     transition: scale(1.1);
     cursor: pointer;
 }
-.full-site-modal.isvisible{
+.full-site-modal.is-visible {
     visibility: visible;
     opacity: 1;
 }

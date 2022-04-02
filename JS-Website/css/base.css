@@ -78,3 +78,20 @@ btn-primary a {
 .round-pill {
     border-radius: 50rem;
 }
+.header-lg {
+    font-size: 5rem;
+    letter-spacing: -2.5px;
+    line-height: 1.05;
+}
+.header-md{
+    font-size: 3rem;
+    letter-spacing: -2px;
+}
+
+.sub-header {
+    font-size: 1.315rem;
+    line-height: 1.5;
+    padding-top: 1.35rem;
+    padding-bottom: 1.875rem;
+
+}
