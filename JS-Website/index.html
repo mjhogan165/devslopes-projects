@@ -11,83 +11,98 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>folio</title>
 </head>
+
 <body>
-<main class="site-wrapper">
-    <header class="site-header">
-        <nav class="navbar">
-            <div class="brand-logo">
-                <a href="/"><h2>folio</h2></a>
+    <div class="theme-panel open">
+        <div class="theme-body">
+            <span>Change Theme</span>
+            <div class="btn-group">
+                <button data-toggle="light" class="switcher-btn active">Light</button>
+                <button data-toggle="dark" class="switcher-btn">Dark</button>
             </div>
-            <div class="navbar-nav">
-                <ul class="ul-defaults-none main-menu">
-                    <li class="nav-item">Home</li>
-                    <li class="nav-item" data-open="about">About Me</li>
-                    <li class="nav-item" data-open="contact">Contact</li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-bg">
-        <div class="container">
-            <div class="hero-content">
-                <div class="code-icon">
-                    <i class="fas fa-code"></i>
+            <button class="theme-tab">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+    </div>
+    
+    <main class="site-wrapper">
+        <header class="site-header">
+            <nav class="navbar">
+                <div class="brand-logo">
+                    <a href="/"><h2>folio</h2></a>
                 </div>
-                <h2 class="header-lg">Code. Eat. Sleep</h2>
-                <div class="sub-header">I create meaningful solutions for your brands and products</div>
-                <br>
-                Give your customers the best experience possible
+                <div class="navbar-nav">
+                    <ul class="ul-defaults-none main-menu">
+                        <li class="nav-item">Home</li>
+                        <li class="nav-item" data-open="about">About Me</li>
+                        <li class="nav-item" data-open="contact">Contact</li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-bg">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="code-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h2 class="header-lg">Code. Eat. Sleep</h2>
+                    <div class="sub-header">I create meaningful solutions for your brands and products
+                        <br>
+                        Give your customers the best experience possible
+                    </div>
+                    <div class="btn btn-primary round-pill">
+                        <a href="#" data-open="contact">Let's talk now</a>
+                    </div>
+                </div>
             </div>
-            <div class="btn btn-primary round-pill">
-                <a href="#" data-open="contact">Let's talk now</a>
+        </section>
+
+    </main>
+    <!-- Modals -->
+    <!-- About Page Modal -->
+    <div id="about" class="full-site-modal page-block" data-animation="zoomInOut">
+        <header class="modal-header">
+            <h3>ABOUT PAGE</h3>
+            <i class="fas fa-times" data-close></i>
+        </header>
+        <div class="modal-body">
+            <div class="img-wrapper">
+                <img src="./assets/images/img4.jpg" alt="headshot">
             </div>
-        </div>
-    </section>
+            <h2>Jason Brewer</h2>
+            <p>text 1</p>
+            <p>text 2</p>
+            <div>
+                <div>email me</div>
+                <a href="mailto:mjhogan165@gmail.com">mjhogan165@gmail.com</a>
+            </div>
 
-</main>
-<!-- Modals -->
-<!-- About Page Modal -->
-<div id="about" class="full-site-modal page-block" data-animation="zoomInOut">
-    <header class="modal-header">
-        <h3>ABOUT PAGE</h3>
-        <i class="fas fa-times" data-close></i>
-    </header>
-    <div class="modal-body">
-        <div class="img-wrapper">
-            <img src="./assets/images/img4.jpg" alt="headshot">
         </div>
-        <h2>Jason Brewer</h2>
-        <p>text 1</p>
-        <p>text 2</p>
-        <div>
-            <div>email me</div>
-            <a href="mailto:mjhogan165@gmail.com">mjhogan165@gmail.com</a>
-        </div>
-
     </div>
-</div>
-<!-- Contact Page Modal -->
-<div id="contact" class="full-site-modal page-block" data-animation="zoomInOut">
-    <header class="modal-header">
-        <h3>Contact Page</h3>
-        <i class="fas fa-times" data-close></i>
-    </header>
-    <div class="modal-body">
-        <div class="img-wrapper">
-            <img src="./assets/images/img4.jpg" alt="headshot">
-        </div>
-        <h2>Jason Brewer</h2>
-        <p>text 1</p>
-        <p>text 2</p>
-        <div>
-            <div>email me</div>
-            <a href="mailto:mjhogan165@gmail.com">mjhogan165@gmail.com</a>
-        </div>
+    <!-- Contact Page Modal -->
+    <div id="contact" class="full-site-modal page-block" data-animation="zoomInOut">
+        <header class="modal-header">
+            <h3>Contact Page</h3>
+            <i class="fas fa-times" data-close></i>
+        </header>
+        <div class="modal-body">
+            <div class="img-wrapper">
+                <img src="./assets/images/img4.jpg" alt="headshot">
+            </div>
+            <h2>Jason Brewer</h2>
+            <p>text 1</p>
+            <p>text 2</p>
+            <div>
+                <div>email me</div>
+                <a href="mailto:mjhogan165@gmail.com">mjhogan165@gmail.com</a>
+            </div>
 
+        </div>
     </div>
-</div>
 
 
 <script src="js/main.js"></script>

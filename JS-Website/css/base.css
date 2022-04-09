@@ -52,10 +52,9 @@ button{outline: none;}
 .btn{
     font-weight: 700;
     min-width: 175px;
-    display: inline-block;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    display: flex;
     text-transform: uppercase;
     letter-spacing: 1.63px;
     transition: 0.4s;
@@ -69,8 +68,8 @@ button{outline: none;}
 button:not(:disabled):not(.disabled){
     cursor: pointer;
 }
-btn-primary,
-btn-primary a {
+.btn-primary,
+.btn-primary a {
     color: #fff;
     background-color: #495fef;
     border-color: #495fef;

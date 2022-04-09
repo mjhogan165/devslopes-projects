@@ -8,9 +8,20 @@
     --border: #383f53;
 }
 
-.hero-bg {
+[data-theme="light"] .hero-bg {
     background-image: url("../assets/images/hero-pattern.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+[data-theme="dark"]{
+    --bg: #171a23;
+    --bg-panel: #fff;
+    --color-headings: #fff;
+    --colo-text-opacity: rgba(255, 255, 255, 0.7);
+    --color-text: #fff;
+    --color-text-base: #161c2d;
+    --border: #ced4da;
+
 }
