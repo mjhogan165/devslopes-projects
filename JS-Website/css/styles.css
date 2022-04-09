@@ -120,6 +120,51 @@
     line-height: 1.5;
 }
 
+.search-container label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+.search-input{
+    padding: 0.75rem 1.5rem;
+    background-color: #f1f3f5;
+    border: 1px solid #f1f3f5;
+    border-radius: 50rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4d8bf7;
+    box-shadow:  inset 0 1px 1px rgba(0, 0, 0, 0.0125), 0 0 8px rgba(34, 139, 230, 0.5);
+    
+}
+
+.search-container .fa-search {
+    position: absolute;
+    right: 10px;
+}
+
+.portfolio-filter-nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+
+.portfolio-filter-nav .filter-link {
+    padding: 0 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    letter-spacing: 1.63px;
+    font-weight: 700;
+}
+
+.portfolio-filter-nav .filter-link:hover {
+    cursor: pointer;
+}
+
+.portfolio-filter-nav .filter-link:active {
+    color: #495fef;
+}
 
 
 
