@@ -37,6 +37,7 @@ const setTheme = (val) => {
     }
     else {
         root.setAttribute(dataTheme, light);
+        localStorage.setItem(theme, light);
     }
 }
 // checks to restore previous theme after re open
