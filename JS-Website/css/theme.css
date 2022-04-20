@@ -2,7 +2,7 @@
     --bg: #fff;
     --bg-panel: #fff;
     --color-headings: #161c2d;
-    --colo-text-opacity: rgba(22, 28, 45, 0.7);
+    --color-text-opacity: rgba(22, 28, 45, 0.7);
     --color-text: #161c2d;
     --color-text-base: #161c2d;
     --border: #383f53;
@@ -19,7 +19,7 @@
     --bg: #171a23;
     --bg-panel: #fff;
     --color-headings: #fff;
-    --colo-text-opacity: rgba(255, 255, 255, 0.7);
+    --color-text-opacity: rgba(255, 255, 255, 0.7);
     --color-text: #fff;
     --color-text-base: #161c2d;
     --border: #ced4da;
