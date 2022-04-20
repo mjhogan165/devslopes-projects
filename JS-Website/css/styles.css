@@ -171,6 +171,9 @@
     flex-wrap: wrap;
     padding: 3rem 1rem;
     justify-content: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .portfolio-card {

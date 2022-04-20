@@ -7,16 +7,20 @@ const light = 'light';
 const open = 'open';
 const active = 'active';
 
-const modalOpen = '[data-open]'
-const modalClose = '[data-close]'
-const isVisible = 'is-visible'
+const modalOpen = '[data-open]';
+const modalClose = '[data-close]';
+const isVisible = 'is-visible';
 
+const dataFilter = 'data-filter';
 const root = document.documentElement;
 
 // Theme shortcuts
 const toggleTheme = document.querySelector(themeTab);
 const switcher = document.querySelectorAll(switcherBtn);
 const currentTheme = localStorage.getItem(theme);
+
+// Portfolio
+const filerLink = document.querySelectorAll(dataFilter);
 
 // Modal
 const openModal = document.querySelectorAll(modalOpen);
@@ -67,7 +71,7 @@ toggleTheme.addEventListener('click', function() {
     }
 })
 
-for(const elm of switcher){
+for(const elm of switcher) {
     elm.addEventListener('click', function(){
         const toggle = this.dataset.toggle;
         setActive(elm, switcherBtn);
@@ -75,7 +79,11 @@ for(const elm of switcher){
     })
 }
 
-
+for (const link of filterLink){
+    link.addEventListener('click', function() {
+        setActive(link, '.filter-link');
+    })
+}
 
 //full site modal open buttons
 for (const elm of openModal) {
@@ -85,7 +93,7 @@ for (const elm of openModal) {
     })
 }
 
-for (const elm of closeModal){
+for (const elm of closeModal) {
     elm.addEventListener('click', function(){
         this.parentElement.parentElement.classList.remove(isVisible)
     })
