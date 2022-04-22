@@ -162,7 +162,7 @@
     cursor: pointer;
 }
 
-.portfolio-filter-nav .filter-link:active {
+.portfolio-filter-nav .filter-link.active {
     color: #495fef;
 }
 

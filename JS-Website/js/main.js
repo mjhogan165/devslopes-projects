@@ -11,7 +11,9 @@ const modalOpen = '[data-open]';
 const modalClose = '[data-close]';
 const isVisible = 'is-visible';
 
-const dataFilter = 'data-filter';
+const dataFilter = '[data-filter]';
+const portfolioData = '[data-item]';
+
 const root = document.documentElement;
 
 // Theme shortcuts
@@ -20,7 +22,9 @@ const switcher = document.querySelectorAll(switcherBtn);
 const currentTheme = localStorage.getItem(theme);
 
 // Portfolio
-const filerLink = document.querySelectorAll(dataFilter);
+const filterLink = document.querySelectorAll(dataFilter);
+const portfolioItems = document.querySelectorAll(portfolioData);
+const searchBox = document.querySelector('search');
 
 // Modal
 const openModal = document.querySelectorAll(modalOpen);
@@ -79,11 +83,26 @@ for(const elm of switcher) {
     })
 }
 
+searchBox.addEventListener()
+
+
 for (const link of filterLink){
     link.addEventListener('click', function() {
         setActive(link, '.filter-link');
+        const filter = this.dataset.filter;
+        portfolioItems.forEach((card => {
+            if (filter === 'all') {
+                card.style.display = 'block';
+            } else if (card.dataset.item === filter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+
+        }))
     })
 }
+
 
 //full site modal open buttons
 for (const elm of openModal) {
