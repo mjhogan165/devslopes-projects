@@ -42,7 +42,16 @@ clickCatBtn(mensBtn, "men's clothing");
 
 
 //==========SORT BY===========================
-
+function activateSortPrice () {
+    priceBtn.addEventListener('click', () =>{
+        displayedProducts.sort((a,b) => {
+            if (a.price > b.price) 
+            {return -1} 
+        })
+        insertCardsByArr(displayedProducts);
+    })
+}
+activateSortPrice();
 priceBtn.addEventListener('click', () =>{
     displayedProducts.sort((a,b) => {
         if (a.price > b.price) 
@@ -105,32 +114,40 @@ function clearDisplayedCards(){
 function insertCardsByArr(arr){
     clearDisplayedCards();
     writeCardsHTML(arr);
+    activateSortPrice();
 }
 
 function writeCardsHTML(arr){
     for (const element of arr){
         grid.insertAdjacentHTML("beforeend", 
-        `<div class="product-card">
+        `                <div class="product-card">
+        <div class="product-card-item">
             <h3>${element.title}</h3>
+        </div>
+        <div class="product-card-item">
             <img src="${element.image}" alt="product img">
-            <div class="description">
-                ${element.description}
+        </div>
+        <div class="description product-card-item">
+            ${element.description}
+        </div>
+        <div class="product-card-item">
+            <div class="price">
+                $ ${element.price}
             </div>
-            <div>
-                <div class="price">
-                    $ ${element.price}
-                </div>
-                <div data-id="${element.id}" class="card-btns">
-                    <button class="cart-btn btn btn-primary round-pill">Add to cart</button>
-                </div>
+            <div data-id="${element.id}" class="card-btns product-card-item">
+                <button class="cart-btn btn btn-primary round-pill">Add to cart</button>
             </div>
+        </div>
+        <div class="product-card-item">
             <div class="rating">
-            <i class="fa-solid fa-star"></i> ${element.rating.rate}
+                <i class="fa-solid fa-star"></i> ${element.rating.rate}
             </div>
+        </div>
+        <div class="product-card-item">
             <button data-id="${element.id}" class="remove-cart">
                 Remove
             </button>
-        </div> 
+        </div>
     </div>`);
     }
 
