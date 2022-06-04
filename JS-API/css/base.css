@@ -83,10 +83,10 @@ button:not(:disabled):not(.disabled){
 .btn-primary,
 .btn-primary a {
     color: #000;
-    background-color: #f9be44;
+    background-color: #e7d7b6;
 }
 .round-pill {
-    border-radius: 50rem;
+    border-radius: 5px;
 }
 .header-lg {
     font-size: 5rem;

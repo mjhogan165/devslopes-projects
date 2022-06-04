@@ -26,7 +26,11 @@ let displayedProducts = [];
 const cartBtnNav = document.getElementById('cart');
 const sortLinks = document.querySelectorAll('.sort-link');
 
+
+
+//======API==========
 fetchProducts();
+
 // =============NAV===================
 cartBtnNav.addEventListener('click',function () {
     displayCart();
@@ -42,23 +46,18 @@ clickCatBtn(mensBtn, "men's clothing");
 
 
 //==========SORT BY===========================
-function activateSortPrice () {
-    priceBtn.addEventListener('click', () =>{
-        displayedProducts.sort((a,b) => {
-            if (a.price > b.price) 
-            {return -1} 
-        })
-        insertCardsByArr(displayedProducts);
-    })
-}
+
 activateSortPrice();
-priceBtn.addEventListener('click', () =>{
-    displayedProducts.sort((a,b) => {
-        if (a.price > b.price) 
-        {return -1} 
-    })
-    insertCardsByArr(displayedProducts);
-})
+
+console.log(displayedProducts)
+
+// priceBtn.addEventListener('click', () =>{
+//     displayedProducts.sort((a,b) => {
+//         if (a.price > b.price) 
+//         {return -1} 
+//     })
+//     insertCardsByArr(displayedProducts);
+// })
 
 
 titleBtn.addEventListener('click', () =>{
@@ -89,12 +88,23 @@ ratingBtn.addEventListener('click', () =>{
 
 // =================FUNCTIONS===================================
 
+function activateSortPrice () {
 
+    priceBtn.addEventListener('click', () =>{
+        displayedProducts.sort((a,b) => {
+            if (a.price > b.price) 
+            {return -1} 
+        })
+        console.log('displ')
+        console.log(displayedProducts)
+        insertCardsByArr(displayedProducts);
+    })
+}
 
 function clickCatBtn (btn, categoryStr) {
     btn.addEventListener('click', () => {
         clearDisplayedCards();
-        displayedProducts = insertCardsByCategory(categoryStr)
+        insertCardsByCategory(categoryStr)
     })
 }
 
@@ -114,11 +124,12 @@ function clearDisplayedCards(){
 function insertCardsByArr(arr){
     clearDisplayedCards();
     writeCardsHTML(arr);
-    activateSortPrice();
+
 }
 
 function writeCardsHTML(arr){
     for (const element of arr){
+        console.log(element.rating.rate)
         grid.insertAdjacentHTML("beforeend", 
         `                <div class="product-card">
         <div class="product-card-item">
@@ -161,7 +172,8 @@ async function fetchProducts(){
         allProducts = await returnValue.json();
     }
     catch(err){console.log(err.message)}
-
+    
+console.log(allProducts)
 }
 
 function insertCardsByCategory(categoryStr){
@@ -180,9 +192,12 @@ function insertCardsByCategory(categoryStr){
     }
 
     writeCardsHTML(categoryArr);
-    displayedProducts = categoryArr;
+
+    //update displayedproducts
+    displayedProducts.push(categoryArr);
     activateAddtoCartBtn();
-    
+
+
 };
 
 
