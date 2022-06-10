@@ -16,7 +16,7 @@ const priceBtn = document.getElementById('price');
 const titleBtn = document.getElementById('title');
 const ratingBtn = document.getElementById('rated');
 
-
+let arrRemoveBtns = []
 
 let cartIds = [];
 let userCart = new Array();
@@ -47,37 +47,9 @@ clickCatBtn(mensBtn, "men's clothing");
 
 //==========SORT BY===========================
 
-activateSortPrice();
-
-console.log(displayedProducts)
-
-// priceBtn.addEventListener('click', () =>{
-//     displayedProducts.sort((a,b) => {
-//         if (a.price > b.price) 
-//         {return -1} 
-//     })
-//     insertCardsByArr(displayedProducts);
-// })
-
-
-titleBtn.addEventListener('click', () =>{
-    displayedProducts.sort((a,b) => {
-        if (a.title > b.title) 
-        {return 1} 
-        else {return -1}
-    })
-    insertCardsByArr(displayedProducts);
-})
-
-ratingBtn.addEventListener('click', () =>{
-    displayedProducts.sort((a,b) => {
-        if (a.rating.rate > b.rating.rate) 
-        {return -1}  
-        else {return 1}
-    })
-    insertCardsByArr(displayedProducts);
-})
-
+activateSortBtn(priceBtn);
+activateSortBtn(titleBtn);
+activateSortBtn(ratingBtn);
 
 
 
@@ -88,17 +60,18 @@ ratingBtn.addEventListener('click', () =>{
 
 // =================FUNCTIONS===================================
 
-function activateSortPrice () {
+async function fetchProducts(){
 
-    priceBtn.addEventListener('click', () =>{
-        displayedProducts.sort((a,b) => {
-            if (a.price > b.price) 
-            {return -1} 
-        })
-        console.log('displ')
-        console.log(displayedProducts)
-        insertCardsByArr(displayedProducts);
-    })
+    try{
+        const returnValue = await fetch('https://fakestoreapi.com/products')
+        allProducts = await returnValue.json();
+    }
+    catch(err){console.log(err.message)}
+    
+    console.log(allProducts)
+    // allProducts.forEach(element => {
+    // console.log(element.rating.rate)
+    // });
 }
 
 function clickCatBtn (btn, categoryStr) {
@@ -107,6 +80,47 @@ function clickCatBtn (btn, categoryStr) {
         insertCardsByCategory(categoryStr)
     })
 }
+
+// function activateSortPrice () {
+
+//     priceBtn.addEventListener('click', () =>{
+//         displayedProducts.forEach(function(elm) {
+//             elm = elm.sort(function (a,b){
+//                 return a.price - b.price
+//             })
+//             console.log(elm)
+//             insertCardsByArr(elm);
+//         })
+
+//     })
+// }
+function activateSortBtn(btn){
+    btn.addEventListener('click', () =>{
+        displayedProducts.forEach(function(elm) {
+            elm = elm.sort(function (a,b){  
+                return a.price - b.price
+            })
+            console.log(elm)
+            insertCardsByArr(elm);
+        })
+
+    })
+
+}
+function activateTitleBtn(btn){
+    btn.addEventListener('click', () =>{
+        displayedProducts
+            elm = displayedProducts.title.sort()
+            console.log(elm)
+            insertCardsByArr(elm);
+        })
+
+    
+
+}
+
+
+
 
 function removeNodesByClass(classStr){
     const cards = document.querySelectorAll(classStr);
@@ -129,7 +143,7 @@ function insertCardsByArr(arr){
 
 function writeCardsHTML(arr){
     for (const element of arr){
-        console.log(element.rating.rate)
+        // console.log(element.rating.rate)
         grid.insertAdjacentHTML("beforeend", 
         `                <div class="product-card">
         <div class="product-card-item">
@@ -155,26 +169,44 @@ function writeCardsHTML(arr){
             </div>
         </div>
         <div class="product-card-item">
-            <button data-id="${element.id}" class="remove-cart">
+            <button data-id="${element.id}" class="remove-cart-btn">
                 Remove
             </button>
         </div>
     </div>`);
     }
 
-    //w remove button display:none
-}
-
-async function fetchProducts(){
-
-    try{
-        const returnValue = await fetch('https://fakestoreapi.com/products')
-        allProducts = await returnValue.json();
-    }
-    catch(err){console.log(err.message)}
     
-console.log(allProducts)
+    activateRemoveBtns();
 }
+
+function activateRemoveBtns () {
+
+    arrRemoveBtns = document.querySelectorAll('.remove-cart-btn')
+    let productId; 
+    for (const btn of arrRemoveBtns){ 
+        btn.addEventListener('click',function () {
+            productId = btn.dataset.id;
+
+            //filter item from userCart
+            userCart = userCart.filter(function(obj){
+                return obj.id != productId;
+            })
+            cartIds = [];
+            for (const element of userCart){
+                    cartIds.push(element.id)  
+            }
+
+            console.log(`userCart: ${userCart}`)
+
+            insertCardsByArr(userCart);
+            showRemoveBtn();
+            hideAddToCartBtn();
+        })
+    }
+}
+
+
 
 function insertCardsByCategory(categoryStr){
     let categoryArr = [];
@@ -194,7 +226,10 @@ function insertCardsByCategory(categoryStr){
     writeCardsHTML(categoryArr);
 
     //update displayedproducts
+    displayedProducts = [];
     displayedProducts.push(categoryArr);
+    console.log(displayedProducts);
+
     activateAddtoCartBtn();
 
 
@@ -203,63 +238,39 @@ function insertCardsByCategory(categoryStr){
 
 
 //------USER CART-----------
-// --fetchs list of all products and stores the selected items in userCart(global)
 function displayCart(){
     clearDisplayedCards();
-    if(userCart.length > 0){
-        userCart = [];
-    }
+
+    // if(userCart.length > 0){
+    //     userCart = [];
+    // }
+// add to cartlist
     for (const element of allProducts) {
         if(cartIds.includes(`${element.id}`)){
             userCart.push(element);
         }
     }
 
-    writeCardsHTML(userCart);
-    let CartBtnsRemove = document.querySelectorAll('.remove-cart')
-    CartBtnsRemove.forEach(element => element.style.display= "block")
+    insertCardsByArr(userCart);
 
-    let CartBtnsAdd = document.querySelectorAll('.cart-btn');
-    CartBtnsAdd.forEach(element => element.style.display= "none")
+    // arrRemoveBtns = document.querySelectorAll('.remove-cart-btn')
 
-    let nodeId 
-    for (const node of CartBtnsRemove){ 
-        node.addEventListener('click',function () {
-            nodeId = node.dataset.id;
+    //add-to-cart btn show or dont
+    showRemoveBtn();
+    hideAddToCartBtn();
 
-            console.log('node Id'+ nodeId)
-
-            //filter item from userCart
-            userCart = userCart.filter(function(value){
-                console.log('prod id' + value.id)
-                return value.id != nodeId;
-            })
-            clearDisplayedCards();
-            writeCardsHTML(userCart);
-
-            CartBtnsAdd = document.querySelectorAll('.cart-btn');
-            CartBtnsAdd.forEach(element => element.style.display= "none")
-
-            CartBtnsRemove = document.querySelectorAll('.remove-cart')
-            CartBtnsRemove.forEach(element => element.style.display= "block")
-        })
-    }
-    CartBtnsRemove = document.querySelectorAll('.remove-cart')
-    CartBtnsRemove.forEach(element => element.style.display= "block")
-
-    console.log('cart'+ userCart)
+    activateRemoveBtns();
     
     displayedProducts = userCart;
-    // let removeBtns = document.querySelectorAll('.remove-cart')
-    // removeBtns.addEventListener('click', () =>{
-    //     let btnId = this.dataset.id;
-    //     foreach (btn => {
-    //         if(product.id === btn.dataset.id ){
+}
 
-    //         }
-    //     }) 
-    //     }
-    // })
+function showRemoveBtn(){
+    let CartBtnsRemove = document.querySelectorAll('.remove-cart-btn')
+    CartBtnsRemove.forEach(element => element.style.display= "block")
+}
+function hideAddToCartBtn(){
+    let CartBtnsAdd = document.querySelectorAll('.cart-btn');
+    CartBtnsAdd.forEach(element => element.style.display= "none")
 }
 
 function activateAddtoCartBtn(){
