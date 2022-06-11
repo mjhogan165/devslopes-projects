@@ -48,8 +48,19 @@ clickCatBtn(mensBtn, "men's clothing");
 //==========SORT BY===========================
 
 activateSortBtn(priceBtn);
-activateSortBtn(titleBtn);
-activateSortBtn(ratingBtn);
+activateTitleBtn(titleBtn);
+
+
+// ratingBtn.addEventListener('click', () =>{
+//     displayedProducts.forEach(function(elm) {
+//         elm = elm.sort(function (a,b){  
+//             return a.price - b.price
+//         })
+//         console.log(elm)
+//         insertCardsByArr(elm);
+//     })
+
+// })
 
 
 
@@ -67,33 +78,20 @@ async function fetchProducts(){
         allProducts = await returnValue.json();
     }
     catch(err){console.log(err.message)}
-    
+
     console.log(allProducts)
-    // allProducts.forEach(element => {
-    // console.log(element.rating.rate)
-    // });
 }
 
+// -----HEADER BUTTONS-----------
 function clickCatBtn (btn, categoryStr) {
     btn.addEventListener('click', () => {
         clearDisplayedCards();
         insertCardsByCategory(categoryStr)
+        let arr = Array.from(displayedProducts[0])
+        document.getElementById("results-found").innerHTML =  arr.length + ' Results Found';
     })
 }
 
-// function activateSortPrice () {
-
-//     priceBtn.addEventListener('click', () =>{
-//         displayedProducts.forEach(function(elm) {
-//             elm = elm.sort(function (a,b){
-//                 return a.price - b.price
-//             })
-//             console.log(elm)
-//             insertCardsByArr(elm);
-//         })
-
-//     })
-// }
 function activateSortBtn(btn){
     btn.addEventListener('click', () =>{
         displayedProducts.forEach(function(elm) {
@@ -105,35 +103,100 @@ function activateSortBtn(btn){
         })
 
     })
-
 }
+
 function activateTitleBtn(btn){
+    let i = 1;
     btn.addEventListener('click', () =>{
-        displayedProducts
-            elm = displayedProducts.title.sort()
-            console.log(elm)
-            insertCardsByArr(elm);
-        })
+        if(i % 2 !== 0){
+            displayedProducts.forEach(function(elm) {
+                elm = elm.sort(function (a,b){  
+                        
+                    if (a.title < b.title) {
+                        return -1;
+                    }
+                        if (a.title > b.title) {
+                        return 1;
+                    }
+                })
+                console.log(elm)
+                insertCardsByArr(elm);
+                document.getElementById("title").innerHTML = "Title Z-A";
+                console.log(i)
+                
+ 
+                i++
+            })
+        }
+        else{
+            displayedProducts.forEach(function(elm) {
+                elm = elm.sort(function (a,b){  
+                        
+                    if (a.title > b.title) {
+                        return -1;
+                    }
+                        if (a.title > b.title) {
+                        return 1;
+                    }
+                })
+                console.log(elm)
+                insertCardsByArr(elm);
+                document.getElementById("title").innerHTML = "Title A-Z";
+                console.log(i)
+                
+ 
+                i++
+            })
 
+        }
+        
+    })
+
+}
     
-
-}
-
-
-
-
-function removeNodesByClass(classStr){
-    const cards = document.querySelectorAll(classStr);
-    for (const card of cards){
-        card.remove();
-    };
-}
 
 //-----PRODUCT CARDS-------------
 function clearDisplayedCards(){
     removeNodesByClass('.welcome-banner')
     removeNodesByClass('.product-card')
 }
+
+function insertCardsByCategory(categoryStr){
+    // let i = 1;
+    let categoryArr = [];
+
+    // if(i===1){
+    //     makeBold(titleBtn)
+    //     i++
+    // }
+
+
+    if(categoryStr === 'all'){
+            categoryArr = allProducts;
+    }
+
+    else {
+        for (const element of allProducts) {
+            if(element.category === categoryStr){
+                categoryArr.push(element);
+            }
+        }
+    }
+    categoryArr.sort(function (a,b){             
+        if (a.title < b.title) {
+            return -1;
+        }
+            if (a.title > b.title) {
+            return 1;
+        }
+    })
+    insertCardsByArr(categoryArr)
+    //update displayedproducts
+    displayedProducts = [];
+    displayedProducts.push(categoryArr);
+    console.log(displayedProducts);
+    activateAddtoCartBtn();
+};
 
 function insertCardsByArr(arr){
     clearDisplayedCards();
@@ -176,7 +239,6 @@ function writeCardsHTML(arr){
     </div>`);
     }
 
-    
     activateRemoveBtns();
 }
 
@@ -206,39 +268,11 @@ function activateRemoveBtns () {
     }
 }
 
-
-
-function insertCardsByCategory(categoryStr){
-    let categoryArr = [];
-
-    if(categoryStr === 'all'){
-            categoryArr = allProducts;
-    }
-
-    else {
-        for (const element of allProducts) {
-            if(element.category === categoryStr){
-                categoryArr.push(element);
-            }
-        }
-    }
-
-    writeCardsHTML(categoryArr);
-
-    //update displayedproducts
-    displayedProducts = [];
-    displayedProducts.push(categoryArr);
-    console.log(displayedProducts);
-
-    activateAddtoCartBtn();
-
-
-};
-
-
-
 //------USER CART-----------
 function displayCart(){
+    // let elm = document.getElementById("results-found")
+    // elm.style.display= "none"
+
     clearDisplayedCards();
 
     // if(userCart.length > 0){
@@ -284,7 +318,26 @@ function activateAddtoCartBtn(){
     
 };
 
+// ------TOOLS--------------------
+function removeNodesByClass(classStr){
+    const cards = document.querySelectorAll(classStr);
+    for (const card of cards){
+        card.remove();
+    };
+}
 
+function toggleBold(elm){
+    const cssDeclaration = window.getComputedStyle(elm)
+    const val = cssDeclaration.getPropertyValue('font-weight')
+    (val => {
+        if(val === 400){
+            elm.style.fontWeight = '700'
+        }
+    }
+    )
+
+    // elm.style.fontWeight = '700'
+}
 
 
 

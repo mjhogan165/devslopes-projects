@@ -98,12 +98,19 @@
 .sort-link:hover {
     cursor: pointer;
 }
-
+#title{
+    font-weight: 400;
+}
+#results-found{
+    padding-top: 1rem;
+    margin: auto;
+    width: fit-content;
+}
 
 #products-grid {
     display: flex;
     flex-wrap: wrap;
-    padding: 3rem 1rem;
+    padding: 1rem 3rem;
     justify-content: center;
     max-width: 1400px;
     width: 100%;
