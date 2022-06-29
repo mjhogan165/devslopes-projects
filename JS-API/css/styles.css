@@ -67,10 +67,15 @@
     font-size: 30px;
     font-weight: 400;
 }
-.welcome-banner{
+.welcome-banner, #welcome-banner-text{
+    display: block;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 4rem;
 }
+.welcome-banner :nth-child(2){
+    font-size: 12px;
+}
+
 .hero-nav {
     display: flex;
     flex-wrap: wrap;
@@ -100,6 +105,17 @@
 }
 #title{
     font-weight: 400;
+}
+#title-drop-down{
+    font-size: inherit;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: inherit;
+    background: transparent;
+    border: solid 1px rgb(12 12 12 / 14%);
+}
+#title-drop-down::after{
+    color: blue;
 }
 #results-found{
     padding-top: 1rem;

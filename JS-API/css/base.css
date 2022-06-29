@@ -2,10 +2,6 @@
     /* color var */
     --white: #FFF;
     --black: #000;
-    --font-color-base: #666;
-    --font-color-dark: #212529;
-    --font-color-light:#b0aebe;
-    --font-color-link: #57A6FF;
 }
 
 section,
@@ -84,18 +80,21 @@ button:not(:disabled):not(.disabled){
 .btn-primary a {
     color: #000;
     background-color: #e7d7b6;
+    outline: #5a5a5a6b solid 1px;
 }
+.btn:hover{
+    box-shadow: 0px 0px 5px 0px rgb(149 149 149) inset;
+}
+.btn:link{
+    color: #000;
+}
+.btn:focus{
+    box-shadow: 0px 0px 5px 0px rgb(149 149 149) inset;
+    background-color: #c8b897;
+}
+
 .round-pill {
     border-radius: 5px;
-}
-.header-lg {
-    font-size: 5rem;
-    letter-spacing: -2.5px;
-    line-height: 1.05;
-}
-.header-md{
-    font-size: 3rem;
-    letter-spacing: -2px;
 }
 
 .sub-header {

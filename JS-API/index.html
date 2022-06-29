@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/theme.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +29,7 @@
                 <div class="navbar-nav">
                     <ul class="ul-defaults-none main-menu header-brand">
                         <li class="nav-item">Search</li>
-                        <li class="nav-item" ></li>
+                        <!-- <li class="nav-item" ></li> -->
                         <li id="cart" class="nav-item">Cart</li>
                     </ul>
                 </div>
@@ -48,7 +49,14 @@
                     </ul>
                     <ul class="hero-nav ul-defaults-none sort-by">
                         <li id="price" class="sort-link">Price</li>
-                        <li id="title" class="sort-link">Title A-Z</li>
+                        <li id="title" class="sort-link">
+                            <form action="" id="title-form">
+                                <select name="title" id="title-drop-down">
+                                    <option id="azz" name ="a-z" value="a-z" >A-Z</option>
+                                    <option id="z-a" name="name"value="z-a">Z-A</option>
+                                </select>
+                            </form>
+                        </li>
                         <li id="rated" class="sort-link">Top Rated</li>
                     </ul>
                 </div>
@@ -58,7 +66,7 @@
 
         <!-- Welcome -->
         <div class="welcome-banner">
-            <h1 class="header-brand">Welcome to the Store</h1>
+            <h1 id="welcome-banner-text" class="header-brand"> Welcome to the Store</h1>
         </div>
 
 

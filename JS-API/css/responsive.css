@@ -1,0 +1,11 @@
+@media (max-width: 992px){
+    .product-card{
+        flex-direction: column;
+    }
+    .main-menu .nav-item {
+        padding: 10px;
+    }
+    .main-menu.ul-defaults-none{
+        margin-top: 4px;
+    }
+}
