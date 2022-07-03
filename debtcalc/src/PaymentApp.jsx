@@ -10,58 +10,79 @@ export class PaymentApp extends Component {
         this.state={
             payment: 0,
             paymentInput:"",
-            debtState: "-",
             // newPrincipal:"-"
-            principal: "-",
-            interest: "-"
+            // principal: "-",
+            lastPrincipal: '',
+            // interest: "-"
         }
         
 
 
     }
-    afterState = () => {
-        const {debtState} = this.state
-        this.setState({
-            principal: Number(debtState * .01),
-            interest: this.props.calculateInterest(debtState,this.props.interest)
-        })
-    }
     
-    handleDownPayment = () => {
-        this.setState({debtState: this.props.debt - this.props.principal},()=>{this.afterState();})
-        
-    }
 
     handlePaymentChange = (event) => {this.setState({paymentInput: event.target.value})}
 
-    subtractPayment = (currDebt, payment) => {
-        return currDebt - payment;
+    // subtractPayment = (currDebt, payment) => {
+    //     return currDebt - payment;
+    // }
+
+    // afterSetState = () => {
+    //     this.setState((prev) => ({
+    //         balance: prev.balance - this.state.lastPrincipal
+    //     }))
+    // }
+
+    // handlePaymentSubmit = (event) => {
+    //     const {balance,paymentInput} = this.state;
+    //     const {debt} = this.props;
+        
+    //     // this.setState({
+    //     //     lastPrincipal: this.props.principal,
+    //     //     balance: debt
+    //     // },() => {
+    //     //     this.afterSetState(); // updates that need debt and interestRate to complete before executing
+    //     // });
+    //     event.preventDefault();
+    //     // this.afterState();
+    //     this.setState((prev) => ({payment: Number(paymentInput)}))
+
+    //     //first time around
+    //     if(isNaN(balance)){
+    //         this.setState(() => ({
+    //             balance:debt - this.props.principal,
+    //             lastPrincipal: this.props.principal
+    //         })) 
+    //         console.log('if fired')
+    //     }
+    //     //all subsequent updates
+    //     else{ this.setState((prev) => ({
+    //         balance:prev.balance - this.state.lastPrincipal
+        
+    //     }))
+    //     console.log('else fired')
+    //     }
+           
+    //     }
+    componentDidUpdate(prevProps, prevState, snapShot) {
+
+            //when balance prop updates, interest is calculated with new balance
+            if(this.props.balance !== prevProps.balance){
+                this.setState((prev) => ({
+                    interest: Number((((this.props.interestRate*10**-2)/12) * this.props.balance).toFixed(2)),
+                    principal: Number(this.props.balance * .01)
+                }))
+
+
     }
 
-    handlePaymentSubmit = (event) => {
-        const {debtState,paymentInput, principal} = this.state;
-        const {debt} = this.props;
- 
-        event.preventDefault();
-        // this.afterState();
-        this.setState((prev) => ({payment: Number(paymentInput)}))
-        if(!isNaN(debtState) && debtState !== debt){
-            this.setState((prev) => ({debtState:prev.debtState - Number(paymentInput)}))
-        }
-        else{this.setState((prev) => ({debtState:debt - Number(paymentInput)}))}
-            
-
-        }
-        
-
-
+    }
   render() {
     // const  { debt } = this.props;
-    const {debtState} = this.state;
+    const {balance} = this.props;
     return (
     <div>
         <h2>Payment Tracker</h2>
-        <button onClick={this.handleDownPayment}>Down Payment</button>
         <form action="" onSubmit={this.handlePaymentSubmit}>
             <label htmlFor="">Payment Amount:</label>
             <input 
@@ -73,7 +94,7 @@ export class PaymentApp extends Component {
         <br />
         <button onClick={this.handlePaymentSubmit}>Make Payment</button>
         <div> 
-            Balance: {debtState} 
+            Balance: {balance} 
             <br />
             New Principal: {this.state.principal}
             <br />
