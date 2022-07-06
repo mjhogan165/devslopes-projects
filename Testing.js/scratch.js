@@ -1,9 +1,15 @@
-console.log('hello world')
 
-function multipleReturns(arg1) {
-    return 5 + arg1;
 
-    return 7 + arg1
+function stringToNum(arg1) {
+    if(typeof arg1 === "string"){
+        console.log('true')
+        console.log(typeof arg1)
+        return Number(parseFloat(arg1).toFixed(2))
+        
+    }
+        else{
+            console.log('fasle')
+            return arg1}
 }
-const sum = multipleReturns(3)
-console.log(sum)
+ console.log(stringToNum("23"))
+//  var num = stringToNum("yes")
