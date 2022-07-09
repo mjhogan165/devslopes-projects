@@ -22,33 +22,27 @@ class DebtCalcApp extends React.Component{
     }
 
     stringToNum = (str) => {
-        // if(typeof str === "string"){
-        //     return Number(parseFloat(str).toFixed(2))
-        // }
-        //     else{return str}
-        return Number(parseFloat(str).toFixed(2))
+        if(str ===''){
+            return 0
+        }
+        else{
+            return Number(parseFloat(str).toFixed(2))
+        }
     }
-
     calculateInterest = (debt, interest) => {
-
         return Number((((interest*10**-2)/12) * debt).toFixed(2));
     }
     calcultePrincipal(debt){
         return this.stringToNum((debt * .01))
     }
-    calculateminPayment = (debt, interest) => {
+    calculateMinPayment = (debt, interest) => {
         let interestCalc = this.calculateInterest(debt, interest);
         const principal = debt * .01;
         const sum = interestCalc + principal
-        // console.log(debt)
-        // console.log(interest)
-        // console.log(principal)
-        // console.log(sum)
-        // console.log(this.stringToNum(sum))
 
         return this.stringToNum(sum);
     }
-    calculatePrincipalPaid = (payment, interest) =>{
+    calculatePrincipalPaid = (payment, interest) => {
         return this.stringToNum(payment - interest);
     }
     // calculateNumPayments= (debt, interest) => {
@@ -68,23 +62,33 @@ class DebtCalcApp extends React.Component{
     handleTotalPayChange = (event) => this.setState({totalPaymentInput: event.target.value})
     
     handleDebtSubmit = (event) => {
-        const {debtInput, intInput, totalPaymentInput} = this.state
+        const {debtInput, intInput, totalPaymentInput, interestRate} = this.state
         event.preventDefault();
-        this.setState({
-            debt: this.stringToNum(debtInput),
-            interestRate: this.stringToNum(intInput),
-            totalPayment: this.stringToNum(totalPaymentInput),
-        },() => {
-            this.afterSetState(); // updates that need debt and interestRate to complete before executing
-        });
+        //error check
+        if(isNaN(interestRate)){
+            this.setState({
+                interestRate: 0
+            })
+            console.log('fire')
+        }
+        else{
+            this.setState({
+                debt: this.stringToNum(debtInput),
+                interestRate: this.stringToNum(intInput),
+                totalPayment: this.stringToNum(totalPaymentInput),
+            },() => {
+                this.afterSetState(); // updates that need debt and interestRate to complete before executing
+            });
+
+        }
+       
     } 
     afterSetState = () => { 
         const {interestRate, debt} = this.state
         this.setState({
             interest: this.calculateInterest(debt, interestRate),
             principal: this.calcultePrincipal(debt),
-            minPayment: this.calculateminPayment(debt, interestRate),
-            // numPayments: this.calculateNumPayments(debt, interestRate),
+            minPayment: this.calculateMinPayment(debt, interestRate),
             balance: debt
             
         })
@@ -93,42 +97,62 @@ class DebtCalcApp extends React.Component{
 
 
     handleTotalPayment = (event) => {
-        const {totalPaymentInput} = this.state
+        const {debt, interest} = this.state
+        const totalPayment = this.stringToNum(this.state.totalPaymentInput)
+
         event.preventDefault();
-    this.setState({
-        totalPayment: this.stringToNum(totalPaymentInput)
-    },() => {
-        this.afterSetStatePay(); // updates that need debt and interestRate to complete before executing
-    });
+        //error checks
+        if(totalPayment < this.state.minPayment){
+            alert('Does not meet minimum payment requirements')
+        }
+        else if(isNaN(debt)){
+            alert('Please enter debt amount')
+        }
+        else if(isNaN(interest)){
+            alert('Please enter interest amount')
+        }
+        else
+        {
+            this.setState({
+                totalPayment: totalPayment
+            },() => {
+                this.afterSetStatePay(); // updates that need debt and interestRate to complete before executing
+            });
+        }
     }
     afterSetStatePay = () => { 
         const {totalPayment, balance, interestRate, interest} = this.state
-        const principalPaid = totalPayment - interest;
-        this.setState((prev) => ({
-            balance: ((prev.balance) - (principalPaid)).toFixed(2),
-            principalPaid: this.calculatePrincipalPaid(totalPayment, interest)
-        }))
-        const newPayment = {
-           
-            interest: this.calculateInterest(balance, interestRate),
-            minPayment:this.calculateminPayment(balance, interestRate),
-            principal:this.calcultePrincipal(balance),
-            principalPaid: this.calculatePrincipalPaid(totalPayment, interest),
-            balance: balance,
-            totalPayment:totalPayment,
-        }
-        this.state.paymentList.push(newPayment)
+
+
+            const principalPaid = totalPayment - interest;
+            this.setState((prev) => ({
+                balance: this.stringToNum(((prev.balance) - (principalPaid))),
+                principalPaid: this.calculatePrincipalPaid(totalPayment, interest)
+            }))
+            const newPayment = {
+                interest: this.calculateInterest(balance, interestRate),
+                minPayment:this.calculateMinPayment(balance, interestRate),
+                principal:this.calcultePrincipal(balance),
+                principalPaid: this.calculatePrincipalPaid(totalPayment, interest),
+                balance: balance,
+                totalPayment:totalPayment,
+            }
+            this.state.paymentList.push(newPayment)
+
+        
+
       }
 
 
-    handleMinPayment = () => {
-        const { balance, interestRate, principal, totalPayment, interest } = this.state;
-        const minPay = this.calculateminPayment(balance, interestRate)
+    handleMinPayment = (e) => {
+        e.preventDefault();
+        const { balance, interestRate, principal,} = this.state;
+        const minPay = this.calculateMinPayment(balance, interestRate)
         const localPrincipal = this.calcultePrincipal(balance)
-        
 
         this.setState((prev) => ({
             balance: this.stringToNum((prev.balance) - (principal)),
+
         }))
         const newPayment = {
             interest: this.calculateInterest(balance, interestRate),
@@ -136,7 +160,7 @@ class DebtCalcApp extends React.Component{
             principal: localPrincipal,
             principalPaid: localPrincipal,
             balance: balance,
-            totalPayment: minPay ,
+            totalPayment: minPay,
         }
         this.state.paymentList.push(newPayment)
 
@@ -149,52 +173,74 @@ class DebtCalcApp extends React.Component{
             this.setState((prev) => ({
                 interest: this.calculateInterest(balance, interestRate),
                 principal: this.calcultePrincipal(balance),
-                minPayment: this.calculateminPayment(balance, interestRate)
+                minPayment: this.calculateMinPayment(balance, interestRate)
             }))
-        }
+            if(balance <= 100){
+                const p = balance * .01
+                this.setState((prev)=> ({
+                    minPayment: balance + p
+                }))
+
+            }
+
+        } 
     }  ; 
     
     render(){
         return(
             <div className="form-wrapper">
                 <h1>Debt Calculator</h1>
-                <form className="User-debt-input" onSubmit={this.handleDebtSubmit}>
-                    <label>Debt:</label>
-                    <input 
-                        type="number"
-                        onChange={this.handleDebtChange}
-                        value={this.state.debtInput}/>
-                    <br />
-
-                    <label htmlFor="InterestRate">Interest Rate:</label>
-                    <input 
-                        type="number" name="" id=""
-                        onChange={this.handleIntChange}
-                        value={this.state.intInput}/>
+                <form className="user-debt-input" onSubmit={this.handleDebtSubmit}>
+                    <div>
+                        <label>Debt:</label>
                         <br />
-
-                    <input type="submit" onClick={this.handleDebtSubmit} value="Submit" />
+                        <input
+                            className="base-input-field" 
+                            type="text"
+                            onChange={this.handleDebtChange}
+                            value={this.state.debtInput}/>
+                    </div>
+                    <div>
+                        <label htmlFor="InterestRate">Interest Rate:</label>
+                        <br />
+                        <input
+                            className="base-input-field" 
+                            type="text" name="" id=""
+                            onChange={this.handleIntChange}
+                            value={this.state.intInput}/>
+                    </div>
+                    <div>
+                            <input className="btn"  type="submit" onClick={this.handleDebtSubmit} value="Submit" />
+                    </div>
                 </form>
                 <br />
                 <div className="payment-info-wrapper">
-                    <div className="Make-payment-wrapper">
-                        <h3>Payment</h3>
-                        <form action="Make-payment-input">
-                            <label>Enter Amount: </label>
-                                <input 
-                                    type="number"
+                    <div className="make-payment-wrapper">
+                        <h2>Payment</h2>
+                        <form action="make-payment-input">
+                            <div>
+                                <label>Enter Amount: </label>
+                                <br />
+                                <input
+                                    className="base-input-field" 
+                                    type="text"
                                     onChange={this.handleTotalPayChange}
                                     value={this.state.totalPaymentInput}/>
-                                    <input type="submit" onClick={this.handleTotalPayment} value="Make Payment" />
-
+                                    <br />
+                            </div>
+                            <div>
+                                <input className="btn" type="submit" onClick={this.handleTotalPayment} value="Make Payment" />
+                            </div>
+                            <div>
+                                <h3>Or</h3>
+                            </div>
+                            <div>
+                                <button  className="btn" onClick={this.handleMinPayment}>Make Minimum Payment</button>
+                            </div>
                         </form>                        
-                        <br />
-                        <label>Or</label>
-                        <br />
-                        <button onClick={this.handleMinPayment}>Make Minimum Payment</button>
                     </div>
                     <div className="next-payment-wrapper">
-                        <h3>Next Payment</h3>
+                        <h2>Next Payment</h2>
                         <div className="next-payment-child">
                             Balance: {this.state.balance}
                         </div>

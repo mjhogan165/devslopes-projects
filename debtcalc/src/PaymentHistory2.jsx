@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-export class PaymentHistory extends Component {
+export class PaymentHistory2 extends Component {
     constructor(props) {
       super(props)
     
@@ -54,4 +54,4 @@ listPayments = () => {
   }
 }
 
-export default PaymentHistory
+export default PaymentHistory2

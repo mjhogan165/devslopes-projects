@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import DebtCalcApp from './DebtCalcApp';
-
+import DebtCalcApp2 from  './DebtCalcApp2'
 
 
 function App() {
@@ -9,11 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-      <DebtCalcApp />
-
-
-      </header>
+      <DebtCalcApp2 />
     </div>
   );
 }

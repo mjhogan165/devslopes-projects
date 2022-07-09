@@ -1,15 +1,15 @@
 
 
-function stringToNum(arg1) {
-    if(typeof arg1 === "string"){
-        console.log('true')
-        console.log(typeof arg1)
-        return Number(parseFloat(arg1).toFixed(2))
-        
-    }
+
+
+
+    function stringToNum (str) {
+        if(str ===''){
+            return 0
+        }
         else{
-            console.log('fasle')
-            return arg1}
-}
- console.log(stringToNum("23"))
-//  var num = stringToNum("yes")
+            return Number(parseFloat(str).toFixed(2))
+        }
+    }
+
+    console.log(stringToNum(' '))
